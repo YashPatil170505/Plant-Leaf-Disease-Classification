@@ -1,0 +1,50 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+gpu_env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Project outputs and logs
+outputs/
+logs/
+*.log
+
+# Datasets (can be very large)
+plantvillage dataset/
+data/
+datasets/
+
+# Model artifacts / checkpoints
+checkpoints/
+models/
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.keras
+*.onnx
+*.pb
+*.pkl
+*.joblib
+*.npy
+*.npz
+*.zip
+*.tar
+*.gz
