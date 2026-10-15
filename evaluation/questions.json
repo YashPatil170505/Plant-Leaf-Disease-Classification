@@ -1,0 +1,477 @@
+[
+ {
+  "id": "A01",
+  "question": "What do the spots look like on leaves and fruit?",
+  "context_class": "Apple___Apple_scab",
+  "gold_class": "Apple___Apple_scab",
+  "gold_section": "symptoms",
+  "answerable": true
+ },
+ {
+  "id": "A02",
+  "question": "Where does the fungus survive over winter?",
+  "context_class": "Apple___Apple_scab",
+  "gold_class": "Apple___Apple_scab",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "A03",
+  "question": "How can I reduce it in my orchard without spraying?",
+  "context_class": "Apple___Black_rot",
+  "gold_class": "Apple___Black_rot",
+  "gold_section": "prevention_and_cultural_control",
+  "answerable": true
+ },
+ {
+  "id": "A04",
+  "question": "Why do I need to worry about juniper trees nearby?",
+  "context_class": "Apple___Cedar_apple_rust",
+  "gold_class": "Apple___Cedar_apple_rust",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "A05",
+  "question": "What weather makes this disease worse?",
+  "context_class": "Apple___Cedar_apple_rust",
+  "gold_class": "Apple___Cedar_apple_rust",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "A06",
+  "question": "What are the first signs on the leaves?",
+  "context_class": "Cherry_(including_sour)___Powdery_mildew",
+  "gold_class": "Cherry_(including_sour)___Powdery_mildew",
+  "gold_section": "symptoms",
+  "answerable": true
+ },
+ {
+  "id": "U01",
+  "question": "What is the current market price of tomatoes in Mumbai?",
+  "context_class": "Tomato___Late_blight",
+  "answerable": false
+ },
+ {
+  "id": "A07",
+  "question": "Which fungicides can be used and when?",
+  "context_class": "Cherry_(including_sour)___Powdery_mildew",
+  "gold_class": "Cherry_(including_sour)___Powdery_mildew",
+  "gold_section": "chemical_and_biological_control",
+  "answerable": true
+ },
+ {
+  "id": "A08",
+  "question": "What conditions favor this disease?",
+  "context_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+  "gold_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "A09",
+  "question": "Does crop rotation or tillage help?",
+  "context_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+  "gold_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+  "gold_section": "prevention_and_cultural_control",
+  "answerable": true
+ },
+ {
+  "id": "A10",
+  "question": "How is it different from other rusts or leaf spots?",
+  "context_class": "Corn_(maize)___Common_rust_",
+  "gold_class": "Corn_(maize)___Common_rust_",
+  "gold_section": "similar_looking_problems",
+  "answerable": true
+ },
+ {
+  "id": "I01",
+  "question": "What disease is this and how do I manage it?",
+  "image": "plantvillage dataset/Tomato.jpg",
+  "expected_status": "confident",
+  "answerable": true
+ },
+ {
+  "id": "A11",
+  "question": "How do the spores reach my field?",
+  "context_class": "Corn_(maize)___Common_rust_",
+  "gold_class": "Corn_(maize)___Common_rust_",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "A12",
+  "question": "What do the lesions look like?",
+  "context_class": "Corn_(maize)___Northern_Leaf_Blight",
+  "gold_class": "Corn_(maize)___Northern_Leaf_Blight",
+  "gold_section": "symptoms",
+  "answerable": true
+ },
+ {
+  "id": "U02",
+  "question": "Which potato variety gives the highest yield in Punjab?",
+  "context_class": "Potato___Early_blight",
+  "answerable": false
+ },
+ {
+  "id": "A13",
+  "question": "Are there resistant hybrids?",
+  "context_class": "Corn_(maize)___Northern_Leaf_Blight",
+  "gold_class": "Corn_(maize)___Northern_Leaf_Blight",
+  "gold_section": "prevention_and_cultural_control",
+  "answerable": true
+ },
+ {
+  "id": "A14",
+  "question": "What happens to the grape berries?",
+  "context_class": "Grape___Black_rot",
+  "gold_class": "Grape___Black_rot",
+  "gold_section": "symptoms",
+  "answerable": true
+ },
+ {
+  "id": "A15",
+  "question": "When is the vine most at risk of infection?",
+  "context_class": "Grape___Black_rot",
+  "gold_class": "Grape___Black_rot",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "A16",
+  "question": "Is there any effective treatment?",
+  "context_class": "Grape___Esca_(Black_Measles)",
+  "gold_class": "Grape___Esca_(Black_Measles)",
+  "gold_section": "chemical_and_biological_control",
+  "answerable": true
+ },
+ {
+  "id": "A17",
+  "question": "How does the fungus get into the vine?",
+  "context_class": "Grape___Esca_(Black_Measles)",
+  "gold_class": "Grape___Esca_(Black_Measles)",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "A18",
+  "question": "What does it look like on the leaf?",
+  "context_class": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+  "gold_class": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+  "gold_section": "symptoms",
+  "answerable": true
+ },
+ {
+  "id": "U03",
+  "question": "How do I make wine from my grapes?",
+  "context_class": "Grape___Black_rot",
+  "answerable": false
+ },
+ {
+  "id": "A19",
+  "question": "How is it spread between trees?",
+  "context_class": "Orange___Haunglongbing_(Citrus_greening)",
+  "gold_class": "Orange___Haunglongbing_(Citrus_greening)",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "A20",
+  "question": "Could this be a nutrient deficiency instead?",
+  "context_class": "Orange___Haunglongbing_(Citrus_greening)",
+  "gold_class": "Orange___Haunglongbing_(Citrus_greening)",
+  "gold_section": "similar_looking_problems",
+  "answerable": true
+ },
+ {
+  "id": "I02",
+  "question": "What is wrong with my grape leaf?",
+  "image": "plantvillage dataset/color/Grape___Black_rot/9a668952-936a-4d6e-8cda-31f4dcd95a6b___FAM_B.Rot 0458.JPG",
+  "expected_status": "confident",
+  "answerable": true
+ },
+ {
+  "id": "A21",
+  "question": "How can I protect my other citrus trees?",
+  "context_class": "Orange___Haunglongbing_(Citrus_greening)",
+  "gold_class": "Orange___Haunglongbing_(Citrus_greening)",
+  "gold_section": "prevention_and_cultural_control",
+  "answerable": true
+ },
+ {
+  "id": "A22",
+  "question": "What weather conditions spread it?",
+  "context_class": "Peach___Bacterial_spot",
+  "gold_class": "Peach___Bacterial_spot",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "A23",
+  "question": "What sprays are used to manage it?",
+  "context_class": "Peach___Bacterial_spot",
+  "gold_class": "Peach___Bacterial_spot",
+  "gold_section": "chemical_and_biological_control",
+  "answerable": true
+ },
+ {
+  "id": "A24",
+  "question": "Can it come from the seed?",
+  "context_class": "Pepper,_bell___Bacterial_spot",
+  "gold_class": "Pepper,_bell___Bacterial_spot",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "U04",
+  "question": "How do I treat Panama disease in bananas?",
+  "context_class": null,
+  "answerable": false
+ },
+ {
+  "id": "A25",
+  "question": "How do I stop it spreading next season?",
+  "context_class": "Pepper,_bell___Bacterial_spot",
+  "gold_class": "Pepper,_bell___Bacterial_spot",
+  "gold_section": "prevention_and_cultural_control",
+  "answerable": true
+ },
+ {
+  "id": "A26",
+  "question": "What do the target-like spots mean?",
+  "context_class": "Potato___Early_blight",
+  "gold_class": "Potato___Early_blight",
+  "gold_section": "symptoms",
+  "answerable": true
+ },
+ {
+  "id": "A27",
+  "question": "Are stressed or older plants more susceptible?",
+  "context_class": "Potato___Early_blight",
+  "gold_class": "Potato___Early_blight",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "A28",
+  "question": "How fast can it spread and why?",
+  "context_class": "Potato___Late_blight",
+  "gold_class": "Potato___Late_blight",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "A29",
+  "question": "What should I do with infected tubers and cull piles?",
+  "context_class": "Potato___Late_blight",
+  "gold_class": "Potato___Late_blight",
+  "gold_section": "prevention_and_cultural_control",
+  "answerable": true
+ },
+ {
+  "id": "A30",
+  "question": "What does the white powder on the leaves mean?",
+  "context_class": "Squash___Powdery_mildew",
+  "gold_class": "Squash___Powdery_mildew",
+  "gold_section": "symptoms",
+  "answerable": true
+ },
+ {
+  "id": "U05",
+  "question": "What is the best fertilizer schedule for rice paddies?",
+  "context_class": null,
+  "answerable": false
+ },
+ {
+  "id": "I03",
+  "question": "Is my potato plant sick?",
+  "image": "plantvillage dataset/color/Potato___healthy/2dee1571-ef6b-40ef-8c46-334e89aad3f1___RS_HL 1950.JPG",
+  "expected_status": "healthy",
+  "answerable": true
+ },
+ {
+  "id": "A31",
+  "question": "Are there organic or biological options?",
+  "context_class": "Squash___Powdery_mildew",
+  "gold_class": "Squash___Powdery_mildew",
+  "gold_section": "chemical_and_biological_control",
+  "answerable": true
+ },
+ {
+  "id": "A32",
+  "question": "What causes this and how does it spread?",
+  "context_class": "Strawberry___Leaf_scorch",
+  "gold_class": "Strawberry___Leaf_scorch",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "A33",
+  "question": "How can I manage it in my strawberry bed?",
+  "context_class": "Strawberry___Leaf_scorch",
+  "gold_class": "Strawberry___Leaf_scorch",
+  "gold_section": "prevention_and_cultural_control",
+  "answerable": true
+ },
+ {
+  "id": "A34",
+  "question": "Can copper sprays control it?",
+  "context_class": "Tomato___Bacterial_spot",
+  "gold_class": "Tomato___Bacterial_spot",
+  "gold_section": "chemical_and_biological_control",
+  "answerable": true
+ },
+ {
+  "id": "A35",
+  "question": "What does it do to the lower leaves?",
+  "context_class": "Tomato___Early_blight",
+  "gold_class": "Tomato___Early_blight",
+  "gold_section": "symptoms",
+  "answerable": true
+ },
+ {
+  "id": "A36",
+  "question": "What weather conditions favor it?",
+  "context_class": "Tomato___Late_blight",
+  "gold_class": "Tomato___Late_blight",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "U06",
+  "question": "How do I control fall armyworm in maize?",
+  "context_class": null,
+  "answerable": false
+ },
+ {
+  "id": "A37",
+  "question": "Why is it common in greenhouses and high tunnels?",
+  "context_class": "Tomato___Leaf_Mold",
+  "gold_class": "Tomato___Leaf_Mold",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "A38",
+  "question": "How can I tell it apart from early blight?",
+  "context_class": "Tomato___Septoria_leaf_spot",
+  "gold_class": "Tomato___Septoria_leaf_spot",
+  "gold_section": "similar_looking_problems",
+  "answerable": true
+ },
+ {
+  "id": "A39",
+  "question": "How do I control the mites?",
+  "context_class": "Tomato___Spider_mites Two-spotted_spider_mite",
+  "gold_class": "Tomato___Spider_mites Two-spotted_spider_mite",
+  "gold_section": "chemical_and_biological_control",
+  "answerable": true
+ },
+ {
+  "id": "A40",
+  "question": "What temperature and humidity favor it?",
+  "context_class": "Tomato___Target_Spot",
+  "gold_class": "Tomato___Target_Spot",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "I04",
+  "question": "What disease does this tomato leaf have?",
+  "image": "plantvillage dataset/color/Tomato___Target_Spot/8b006696-91e3-473a-844f-ceae651cdff8___Com.G_TgS_FL 0673.JPG",
+  "expected_status": "uncertain",
+  "answerable": true
+ },
+ {
+  "id": "A41",
+  "question": "How is the virus transmitted?",
+  "context_class": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "gold_class": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "A42",
+  "question": "How can I prevent whiteflies from infecting my plants?",
+  "context_class": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "gold_class": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "gold_section": "prevention_and_cultural_control",
+  "answerable": true
+ },
+ {
+  "id": "U07",
+  "question": "What is the history of apple cultivation in Kashmir?",
+  "context_class": "Apple___Apple_scab",
+  "answerable": false
+ },
+ {
+  "id": "A43",
+  "question": "Can I spread it with my hands or tools?",
+  "context_class": "Tomato___Tomato_mosaic_virus",
+  "gold_class": "Tomato___Tomato_mosaic_virus",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "A44",
+  "question": "What are the symptoms of septoria leaf spot on tomato?",
+  "context_class": null,
+  "gold_class": "Tomato___Septoria_leaf_spot",
+  "gold_section": "symptoms",
+  "answerable": true
+ },
+ {
+  "id": "A45",
+  "question": "How does northern corn leaf blight survive between seasons?",
+  "context_class": null,
+  "gold_class": "Corn_(maize)___Northern_Leaf_Blight",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "A46",
+  "question": "What conditions favor potato late blight?",
+  "context_class": null,
+  "gold_class": "Potato___Late_blight",
+  "gold_section": "favorable_conditions",
+  "answerable": true
+ },
+ {
+  "id": "A47",
+  "question": "How do I manage tomato leaf mold in a greenhouse?",
+  "context_class": null,
+  "gold_class": "Tomato___Leaf_Mold",
+  "gold_section": "prevention_and_cultural_control",
+  "answerable": true
+ },
+ {
+  "id": "A48",
+  "question": "What is the insect vector of citrus greening?",
+  "context_class": null,
+  "gold_class": "Orange___Haunglongbing_(Citrus_greening)",
+  "gold_section": "cause_and_disease_cycle",
+  "answerable": true
+ },
+ {
+  "id": "U08",
+  "question": "Is wheat stem rust a problem in Kenya right now?",
+  "context_class": null,
+  "answerable": false
+ },
+ {
+  "id": "A49",
+  "question": "What can be mistaken for cedar apple rust?",
+  "context_class": null,
+  "gold_class": "Apple___Cedar_apple_rust",
+  "gold_section": "similar_looking_problems",
+  "answerable": true
+ },
+ {
+  "id": "I05",
+  "question": "What is this disease?",
+  "image": "plantvillage dataset/color/Tomato___Early_blight/8597694d-3162-40ab-9f5b-e8c7cf03e045___RS_Erly.B 9485.JPG",
+  "expected_status": "uncertain",
+  "answerable": true
+ }
+]

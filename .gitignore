@@ -48,3 +48,9 @@ models/
 *.zip
 *.tar
 *.gz
+
+# Secrets
+.env
+
+# RAG index (rebuilt by rag/build_index.py)
+rag_index/

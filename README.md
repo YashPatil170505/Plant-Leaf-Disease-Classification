@@ -30,6 +30,23 @@ DL_PROJECT/
 ├── train.py                 ← Step 2: Training
 ├── predict.py               ← Step 3: Single image prediction
 ├── gradcam.py               ← Step 4: Grad-CAM visualization
+├── per_species_accuracy.py  ← Per-crop / per-class accuracy
+│
+├── model.py                 ← Shared classifier definition + LeafClassifier
+├── assistant.py             ← Step 5: LLM disease assistant (chat CLI)
+├── knowledge_base/          ← 27 cited reference docs (extension / govt sources)
+├── rag/
+│   ├── knowledge.py         ← parse KB into section chunks
+│   ├── retriever.py         ← local embeddings + cosine search
+│   ├── build_index.py       ← build rag_index/
+│   ├── agent.py             ← Gemini function-calling loop + local tools
+│   ├── report.py            ← diagnosis report (no LLM)
+│   └── llm.py               ← Gemini client (timeouts, model fallback)
+├── evaluation/
+│   ├── confidence_threshold.py ← choose gating threshold from test split
+│   ├── make_questions.py    ← builds questions.json (62 questions)
+│   ├── metrics.py           ← local NLI + relevance scorers
+│   └── run_eval.py          ← Step 6: full evaluation
 ├── requirements.txt
 └── README.md
 ```
@@ -97,6 +114,99 @@ Shows a heatmap of which leaf region the model focused on.
 
 ---
 
+### Step 5 — Ask the LLM Disease Assistant (LLM + RAG + tool calling)
+```bash
+# one-time setup
+copy .env.example .env          # then put your Gemini API key in .env
+python -m rag.build_index       # embed knowledge_base/ locally -> rag_index/
+
+python assistant.py --image path/to/leaf.jpg     # diagnose, then chat (type 'report' / 'quit')
+python assistant.py --image leaf.jpg --ask "How do I prevent it?"
+```
+
+### Step 6 — Evaluate
+```bash
+python -m evaluation.confidence_threshold        # local: choose gating threshold
+python -m evaluation.make_questions              # writes evaluation/questions.json
+python -m evaluation.run_eval --retrieval-only   # local, no LLM
+python -m evaluation.run_eval --limit 20         # end-to-end (Gemini answers, local scoring)
+```
+Results are written to `outputs/eval/` (`report.md`, `results.json`).
+
+---
+
+## 🤖 LLM Assistant Architecture
+
+Gemini is used **only to produce the conversational replies**: it decides which tool to call and writes the answer. Everything else runs locally.
+
+```
+User question / leaf image
+        ↓
+Gemini (function calling) ──► predict_disease ........... local ResNet50
+        │                 ──► retrieve_disease_info ..... local embeddings (bge-small) + cosine search
+        │                 ──► generate_diagnosis_report . local Markdown report (no LLM)
+        ↓
+Answer grounded in retrieved passages, cited as [P1], [P2] → resolved to source URLs
+```
+
+| Component | Runs on | Details |
+|---|---|---|
+| Disease prediction | Local GPU | ResNet50, top-3 + confidence |
+| Confidence gating | Local | < 80% → "uncertain", the assistant discusses all plausible candidates (≥10%) |
+| Knowledge base | Local files | 27 docs (26 diseases + general IPM), 162 section chunks, 70 sources (university extension, USDA, etc.) |
+| Embeddings / retrieval | Local | `BAAI/bge-small-en-v1.5`, filtered to predicted class(es) |
+| Conversation | Gemini API | `gemini-3.8-flash` with automatic fallback to other models |
+| Evaluation scoring | Local | NLI cross-encoder (`nli-deberta-v3-base`) + relevance cross-encoder; no LLM judge |
+
+Guardrails enforced in code: retrieval follows the gating decision, citations are checked against the passages actually retrieved, no pesticide doses, and a disclaimer appears on reports.
+
+---
+
+## 📏 Assistant Evaluation Results
+
+**Confidence threshold** (test split, 5,431 images). Label smoothing caps confidence near 0.90:
+
+| Threshold | Coverage | Accuracy on accepted | Errors flagged |
+|---|---|---|---|
+| 0.70 | 99.43% | 99.67% | 11 / 29 |
+| **0.80 (used)** | **98.97%** | **99.78%** | **17 / 29** |
+| 0.90 | 82.07% | 99.93% | 26 / 29 |
+
+**Retrieval** (49 in-scope questions, fully local):
+
+| Search | Recall@1 | Recall@4 | MRR |
+|---|---|---|---|
+| Global | 28.6% | 49.0% | 0.394 |
+| Filtered by CNN prediction | **81.6%** | **98.0%** | **0.899** |
+
+Using the classifier's prediction as a retrieval filter doubles retrieval quality.
+
+**End-to-end** (pilot run on 7 of 62 questions; stopped early because free-tier Gemini latency is high):
+
+| Metric | Value |
+|---|---|
+| Correct tool called | 100% |
+| Gold passage retrieved | 100% |
+| Citation validity (cited id exists) | 100% |
+| Cited claims entailed by cited passage (NLI) | 68.8% |
+| Unsupported claims (hallucination upper bound) | 30.3% |
+| Correct refusal on out-of-scope | 100% (1/1) |
+| Answer relevance (0–1) | 0.82 |
+| Latency p50 (LLM / local tools) | 32 s / 0.04 s |
+
+NLI scoring is conservative. A manual check of the flagged sentences shows most are correct paraphrases (e.g. "junipers" vs "cedars"), with a few mild overstatements by the LLM, so the hallucination figure is an upper bound. Run `python -m evaluation.run_eval` to complete all 62 questions.
+
+---
+
+## ⚠️ Limitations
+
+- PlantVillage images are lab photos on plain backgrounds; accuracy on field photos will be lower.
+- A random split can put photos of the same leaf in both train and test, inflating test accuracy.
+- The knowledge base covers only the 26 PlantVillage diseases; other questions are declined.
+- The assistant gives general guidance only. Confirm diagnoses and treatments with a local extension office.
+
+---
+
 ## 🧠 Model Architecture
 
 ```
@@ -138,7 +248,7 @@ Softmax → Predicted Class
 | Optimizer       | AdamW               |
 | Learning Rate   | 1e-4                |
 | Scheduler       | CosineAnnealingLR   |
-| Batch Size      | 32                  |
+| Batch Size      | 64                  |
 | Epochs          | 20                  |
 | Loss Function   | CrossEntropy (label smoothing=0.1) |
 | Weight Decay    | 1e-4                |
